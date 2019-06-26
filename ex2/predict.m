@@ -15,16 +15,9 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
-p_values=sigmoid(X*theta);
-for i=1:m
-    if p_values(i)>= 0.5
-        p(i)=1;
-    else
-        p(i)=0;
-    end 
-end
+p_values=sigmoid(X*theta); % compute values
 
-        
+p(p_values >= 0.5) = 1; % \1" or \0" predictions given a dataset and a learned parameter theta 
 
 
 

@@ -18,11 +18,14 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
-grad1=(1/m)*(X(:,1))'*(sigmoid(X*theta)-y);
-grad2=(1/m)*(X(:,[2:end]))'*(sigmoid(X*theta)-y)+(lambda/m)*theta(2:end);
-grad_T=[grad1 grad2'];
-grad=grad_T';
+grad1=(1/m)*(X(:,1))'*(sigmoid(X*theta)-y); % for first column without reg
 
+% for the rest of matrix
+grad2=(1/m)*(X(:,[2:end]))'*(sigmoid(X*theta)-y)+(lambda/m)*theta(2:end); 
+grad_T=[grad1 grad2']; % combine grad1 and grad2
+grad=grad_T'; % transpose grad
+
+% compute cost function
 J=(1/m)*((-y'*log(sigmoid(X*theta)))-(ones(m,1)-y)'*log(1-sigmoid(X*theta)))+(lambda/(2*m))*(sum(theta(2:end).^2));
 
 

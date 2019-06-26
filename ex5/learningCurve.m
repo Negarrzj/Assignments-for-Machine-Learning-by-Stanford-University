@@ -69,13 +69,11 @@ error_val   = zeros(m, 1);
 
 for i = 1:m
      % Compute train/cross validation errors using training examples 
-     
     [theta] = trainLinearReg(X(1:i, :), y(1:i), lambda); %theta optimizer with lambda
     [J1(i), grad]=linearRegCostFunction(X(1:i, :), y(1:i), theta, 0); %error_train should be with lambda=0
     error_train(i)=J1(i); %store
     [J2(i), grad]=linearRegCostFunction(Xval, yval, theta, 0); %error_train should be with lambda=0 %compute Jval with Xval and yval againn and again while we are increasing sample training sets
     error_val(i)=J2(i);%store
-          % error_train(i) and error_val(i)         
 end
 
 

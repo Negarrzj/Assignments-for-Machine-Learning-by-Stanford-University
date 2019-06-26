@@ -13,12 +13,10 @@ X_poly = zeros(numel(X), p);
 % Instructions: Given a vector X, return a matrix X_poly where the p-th 
 %               column of X contains the values of X to the p-th power.
 %
-% 
+% size of the X
 m=size(X);
-for i=1:m
-    for j=1:p
-        X_poly(i,j)=X(i)^j;
-    end
+for i=1:p
+    X_poly(:,i)=X.^i;  
 end
 
    

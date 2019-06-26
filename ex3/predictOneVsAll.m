@@ -32,22 +32,12 @@ X = [ones(m, 1) X];
 %       
 
 p_values=sigmoid(X*all_theta');
-% for i=1:m
-%     for j=1:num_labels
-%         if p_values(i,j)> 0.5
-%             pp(i,j)=1;
-%         else
-%             pp(i,j)=0;
-%         end 
-%     end
-% end
 
+%returns the maximum element along dimension dim
 [predict_max, index_max] = max(p_values, [], 2);
 
+%assign p to the predicted values
 p = index_max;
-
-% [M,p]=max(pp,[],2);
-%p=mod(p,10);
 
 
 % =========================================================================

@@ -21,10 +21,10 @@ grad = zeros(size(theta));
 
 J=(1/(2*m))*(sum(sum(((X*theta)-y).^2)))+(lambda/(2*m))*(sum(sum(theta(2:end,:).^2)));
 
-grad0=(1/m)*(X*theta-y)'*X(:,1);
-grad1=((1/m)*(X*theta-y)'*X(:,2:end))'+(lambda/m)*theta(2:end,:);
+grad0=(1/m)*(X*theta-y)'*X(:,1); % for first column without reg
+grad1=((1/m)*(X*theta-y)'*X(:,2:end))'+(lambda/m)*theta(2:end,:); % for the rest 
 
-grad=[grad0;grad1];
+grad=[grad0;grad1]; % add grad together 
 
 
 

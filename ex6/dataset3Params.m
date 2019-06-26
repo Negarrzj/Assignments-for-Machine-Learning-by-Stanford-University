@@ -43,30 +43,14 @@ for i=1:size(C_series,2)
         pre_error=mean(double(predictions ~= yval));
         index=index+1;
         error_collection{index}=[C,sigma,pre_error];
+        errerValues(index)=pre_error;
     end
 end 
-%% save error of each C and sigma in an array
-for i=1:size(error_collection,2)
-    errerValues(i)=error_collection{i}(3);
-end
 
 %% find min of error and corresponding C and sigma
 [m,indx]= min(errerValues);
 C=error_collection{indx}(1,1);
 sigma=error_collection{indx}(1,2);
-
-
-
-    
-    
-    
-
-    
-    
-
-
-
-
 
 % =========================================================================
 

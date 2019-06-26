@@ -38,8 +38,8 @@ grad = zeros(size(theta));
 
 grad1=(1/m)*(X(:,1))'*(sigmoid(X*theta)-y);    % just for first column
 grad2=(1/m)*(X(:,[2:end]))'*(sigmoid(X*theta)-y)+(lambda/m)*theta(2:end);  %with reg (not for first column of x)
-grad_T=[grad1 grad2'];
-grad=grad_T';
+grad_T=[grad1 grad2']; % combine first column and the rest
+grad=grad_T'; % transpose matrix
 
 %total J
 J=(1/m)*((-y'*log(sigmoid(X*theta)))-(ones(m,1)-y)'*log(ones(m,1)-sigmoid(X*theta)))+(lambda/(2*m))*(sum(theta(2:end).^2));
